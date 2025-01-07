@@ -1,23 +1,24 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const CreateForm = () => {
-  const CreateStaff = () => {
-    const [staff, setStaff] = useState({
-      name: "",
-      staff_role_id: "",
-      email: "",
-      phone: "",
-      address: "",
-      work_schedule: "",
-      hired_date: "",
-      performance_score: "",
-      salary: "",
-    });
-  };
+  
+  const [staff, setStaff] = useState({
+    name: "",
+    staff_role_id: "",
+    email: "",
+    phone: "",
+    address: "",
+    work_schedule_id: "",
+    hired_date: "",
+    performance_score: "",
+  });
 
   const handleChange = (e) => {
-    setStaff({ ...staff, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // setStaff({ ...staff, [name]: value });
+    setStaff((prev) => ({ ...prev, [name]: value }));
+    console.log(staff);
   };
 
   const handleSubmit = (e) => {
@@ -35,11 +36,12 @@ const CreateForm = () => {
           email: "",
           phone: "",
           address: "",
-          work_schedule: "",
+          work_schedule_id: "",
           hired_date: "",
           performance_score: "",
-          salary: "",
         });
+        // message.success("Staff added successfully");
+        navigation.navigate("/StaffManage");
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +55,7 @@ const CreateForm = () => {
         className="shadow-lg p-3 mb-5 bg-body rounded"
       >
         <legend className="text-center mb-4 shadow-sm p-2 rounded bg-warning large">
-          Staff Information Form
+          New Staff Information Form
         </legend>
         {/* Name and Role */}
         <div className="row mb-4">
@@ -68,6 +70,7 @@ const CreateForm = () => {
               id="name"
               name="name"
               placeholder="Enter full name"
+              value={staff.name}
               required
             />
           </div>
@@ -82,6 +85,7 @@ const CreateForm = () => {
               id="staff_role_id"
               name="staff_role_id"
               placeholder="Enter role ID"
+              value={staff.staff_role_id}
               required
             />
           </div>
@@ -100,6 +104,7 @@ const CreateForm = () => {
               id="email"
               name="email"
               placeholder="Enter email address"
+              value={staff.email}
               required
             />
           </div>
@@ -114,6 +119,7 @@ const CreateForm = () => {
               id="phone"
               name="phone"
               placeholder="Enter phone number"
+              value={staff.phone}
               required
             />
           </div>
@@ -131,6 +137,7 @@ const CreateForm = () => {
             name="address"
             rows="3"
             placeholder="Enter address"
+            value={staff.address}
             required
           ></textarea>
         </div>
@@ -142,13 +149,14 @@ const CreateForm = () => {
               Work Schedule ID <span className="text-danger">*</span>
             </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               onChange={handleChange}
               id="work_schedule_id"
               name="work_schedule_id"
-              placeholder='e.g., {"Monday":"9AM-5PM"}'
-              required
+              placeholder='Enter work schedule ID'
+              value={staff.work_schedule_id}
+              
             />
           </div>
           <div className="col-md-4">
@@ -161,6 +169,7 @@ const CreateForm = () => {
               onChange={handleChange}
               id="hired_date"
               name="hired_date"
+              value={staff.hired_date}
               required
             />
           </div>
@@ -176,6 +185,7 @@ const CreateForm = () => {
               id="performance_score"
               name="performance_score"
               placeholder="e.g., 4.5"
+              value={staff.performance_score}
               required
             />
           </div>

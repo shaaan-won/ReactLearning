@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -6,9 +7,9 @@ const Header = () => {
       <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container">
-            <a className="navbar-brand" href="#home">
-              MyWebsite
-            </a>
+            <Link className="navbar-brand" to="/">
+              Staff Management
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -23,56 +24,56 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link active"
                     aria-current="page"
-                    href="#home"
+                    to="/StaffManage"
                   >
-                    Home
-                  </a>
+                    VIEW
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#about">
-                    About
-                  </a>
+                  <Link className="nav-link" to="/StaffCreate">
+                    Add Staff
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#services">
-                    Services
-                  </a>
+                  <Link className="nav-link" to="/work-schedule">
+                    Work Schedule
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="#"
+                    to="#"
                     id="navbarDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    More
-                  </a>
+                    Performance Score
+                  </Link>
                   <ul
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
-                      <a className="dropdown-item" href="#action1">
+                      <Link className="dropdown-item" to="/action1">
                         Action 1
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#action2">
+                      <Link className="dropdown-item" to="/action2">
                         Action 2
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <a className="dropdown-item" href="#action3">
+                      <Link className="dropdown-item" to="/action3">
                         Another Action
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
