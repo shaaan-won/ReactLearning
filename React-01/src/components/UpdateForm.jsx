@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const UpdateForm = () => {
@@ -53,6 +54,7 @@ const UpdateForm = () => {
       )
       .then((res) => {
         console.log(res.data);
+        toast.success("Staff updated successfully");
         setStaff({
           name: "",
           staff_role_id: "",

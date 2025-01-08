@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const CreateForm = () => {
   
@@ -33,6 +34,7 @@ const CreateForm = () => {
       )
       .then((res) => {
         // console.log(res.data);
+        toast.success("Staff added successfully");
         setStaff({
           name: "",
           staff_role_id: "",

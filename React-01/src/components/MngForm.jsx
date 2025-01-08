@@ -2,36 +2,51 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MngForm = () => {
-    const [staffs, setStaffMembers] = useState([]);
+  const [staffs, setStaffMembers] = useState([]);
 
-    const fetchStaffMembers =() => {
-        axios.get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/")
-        .then((res) => {
-            // console.log(res.data.staffs);
-            setStaffMembers(res.data.staffs);
-        })
-    }
-    useEffect(() => {
-      fetchStaffMembers();
-    }, []);
+  const loadingToast = toast.loading("Loading Staff Members...");
 
-    // Delete Staff Member
-    const handleDelete = (id) => {
-      confirm("Are you sure you want to delete this staff member?");
-      axios
-        .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/delete/"+id)
-        .then((res) => {
-          // console.log(res.data);
-          fetchStaffMembers();
-        })
-        .catch((err) => {
-          console.log(err);
+  const fetchStaffMembers = () => {
+    axios
+      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/")
+      .then((res) => {
+        // console.log(res.data.staffs);
+        setStaffMembers(res.data.staffs);
+        toast.update(loadingToast, {
+          render: "Staff Members Loaded",
+          type: "success",
+          isLoading: false,
+          autoClose: 1000,
         });
-    };
-  return (
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  };
+  useEffect(() => {
+    fetchStaffMembers();
+  }, []);
 
+  // Delete Staff Member
+  const handleDelete = (id) => {
+    confirm("Are you sure you want to delete this staff member?");
+    axios
+      .get(
+        "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/delete/" +
+          id
+      )
+      .then((res) => {
+        // console.log(res.data);
+        fetchStaffMembers();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  return (
     <>
       <div className="container mt-5">
         <h2 className="text-center mb-4">Staff Members</h2>
@@ -77,16 +92,28 @@ const MngForm = () => {
                   <td>{data.email}</td>
                   <td>{data.phone}</td>
                   <td>{data.address}</td>
-                  <td>
-                    {data.work_schedule_id}
-                    
-                  </td>
+                  <td>{data.work_schedule_id}</td>
                   <td>{data.hired_date}</td>
                   <td>{data.performance_score}</td>
                   <td className="btn btn-group btn-group-sm mt-2">
-                      <NavLink to={`/Show/${data.id}`} className="btn btn-success" >View</NavLink>
-                      <NavLink to={`/update/${data.id}`} className="btn btn-primary">Edit</NavLink>
-                      <NavLink onClick={()=> handleDelete(data.id)} className="btn btn-danger">Delete</NavLink>
+                    <NavLink
+                      to={`/Show/${data.id}`}
+                      className="btn btn-success"
+                    >
+                      View
+                    </NavLink>
+                    <NavLink
+                      to={`/update/${data.id}`}
+                      className="btn btn-primary"
+                    >
+                      Edit
+                    </NavLink>
+                    <NavLink
+                      onClick={() => handleDelete(data.id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </NavLink>
                   </td>
                 </tr>
               );
