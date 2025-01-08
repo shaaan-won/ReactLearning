@@ -9,7 +9,7 @@ const MngForm = () => {
     const fetchStaffMembers =() => {
         axios.get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/")
         .then((res) => {
-            console.log(res.data.staffs);
+            // console.log(res.data.staffs);
             setStaffMembers(res.data.staffs);
         })
     }
@@ -84,8 +84,8 @@ const MngForm = () => {
                   <td>{data.hired_date}</td>
                   <td>{data.performance_score}</td>
                   <td className="btn btn-group btn-group-sm mt-2">
-                      <NavLink to={`Show/${data.id}`} className="btn btn-success" >View</NavLink>
-                      <NavLink to={`update/${data.id}`} className="btn btn-primary">Edit</NavLink>
+                      <NavLink to={`/Show/${data.id}`} className="btn btn-success" >View</NavLink>
+                      <NavLink to={`/update/${data.id}`} className="btn btn-primary">Edit</NavLink>
                       <NavLink onClick={()=> handleDelete(data.id)} className="btn btn-danger">Delete</NavLink>
                   </td>
                 </tr>

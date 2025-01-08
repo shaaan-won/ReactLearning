@@ -20,7 +20,10 @@ const CreateForm = () => {
     setStaff((prev) => ({ ...prev, [name]: value }));
     console.log(staff);
   };
-
+  
+  // useEffect(() => {
+  //   console.log(staff);
+  // }, [staff]);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -29,7 +32,7 @@ const CreateForm = () => {
         staff
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setStaff({
           name: "",
           staff_role_id: "",

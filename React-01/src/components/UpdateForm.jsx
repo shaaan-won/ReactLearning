@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const UpdateForm = () => {
   const { id } = useParams();
 
-const navigation = useNavigate();
+  const navigation = useNavigate();
   const [staff, setStaff] = useState({
     id: "",
     name: "",
@@ -25,7 +25,7 @@ const navigation = useNavigate();
     axios
       .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/find/" + id)
       .then((res) => {
-        console.log(res.data.staff);
+        // console.log(res.data.staff);
         setStaff(res.data.staff);
       })
       .catch((err) => {
