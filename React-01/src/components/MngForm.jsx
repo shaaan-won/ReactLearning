@@ -7,9 +7,9 @@ import { toast } from "react-toastify";
 const MngForm = () => {
   const [staffs, setStaffMembers] = useState([]);
 
-  const loadingToast = toast.loading("Loading Staff Members...");
-
+  
   const fetchStaffMembers = () => {
+    const loadingToast = toast.loading("Loading Staff Members...");
     axios
       .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/")
       .then((res) => {
@@ -62,6 +62,7 @@ const MngForm = () => {
               <th>Work Schedule</th>
               <th>Hired Date</th>
               <th>Performance Score</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -95,6 +96,11 @@ const MngForm = () => {
                   <td>{data.work_schedule_id}</td>
                   <td>{data.hired_date}</td>
                   <td>{data.performance_score}</td>
+                  <td>
+                    <img src={`http://localhost/Project_PHP/Final_hotel_project/admin/img/staff/shawon-islam.jpg}`} alt={data.name||"image"}
+                       style={{ width: "100px", height: "100px" }}
+                       />
+                  </td>
                   <td className="btn btn-group btn-group-sm mt-2">
                     <NavLink
                       to={`/Show/${data.id}`}

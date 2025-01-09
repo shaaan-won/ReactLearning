@@ -13,27 +13,55 @@ const CreateForm = () => {
     work_schedule_id: "",
     hired_date: "",
     performance_score: "",
+    image: "",
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value,type, files } = e.target;
+    // console.log(name, value, type, files);
+
+    if (type === "file") {
+      setStaff({ ...staff, [name]: files[0] });
+      
+    } else {
+      setStaff({ ...staff, [name]: value });
+    }
+
     // setStaff({ ...staff, [name]: value });
-    setStaff((prev) => ({ ...prev, [name]: value }));
+    // setStaff((prev) => ({ ...prev, [name]: value }));
     console.log(staff);
   };
   
   // useEffect(() => {
   //   console.log(staff);
   // }, [staff]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const empFormData = new FormData();
+    empFormData.append("name", staff.name);
+    empFormData.append("staff_role_id", staff.staff_role_id);
+    empFormData.append("email", staff.email);
+    empFormData.append("phone", staff.phone);         //using the append method to add data to the FormData object to be sent to the server
+    empFormData.append("address", staff.address);
+    empFormData.append("work_schedule_id", staff.work_schedule_id);
+    empFormData.append("hired_date", staff.hired_date);
+    empFormData.append("performance_score", staff.performance_score);
+    empFormData.append("image", staff.image);
+
+
     axios
       .post(
         "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/save",
-        staff
+        empFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       )
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         toast.success("Staff added successfully");
         setStaff({
           name: "",
@@ -44,8 +72,8 @@ const CreateForm = () => {
           work_schedule_id: "",
           hired_date: "",
           performance_score: "",
+          image: "",
         });
-        // message.success("Staff added successfully");
         navigation.navigate("/StaffManage");
       })
       .catch((err) => {
@@ -193,6 +221,18 @@ const CreateForm = () => {
               value={staff.performance_score}
               required
             />
+          </div>
+          <div className="col-md-6 mt-3 mb-3 offset-md-3">
+              <label htmlFor="image" className="form-label">
+                Image <span className="text-danger">*</span> 
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                onChange={handleChange}
+                id="image"
+                name="image"
+              />
           </div>
         </div>
 
