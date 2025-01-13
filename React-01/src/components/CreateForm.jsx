@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const CreateForm = () => {
-  
+  const [staffimages, setStaffImages] = useState([]);
   const [staff, setStaff] = useState({
     name: "",
     staff_role_id: "",
@@ -22,7 +22,12 @@ const CreateForm = () => {
 
     if (type === "file") {
       setStaff({ ...staff, [name]: files[0] });
-      
+
+      const reader = new FileReader(); //FOr showing the image
+      reader.onload = () => {
+        setStaffImages(reader.result);
+      };
+      reader.readAsDataURL(files[0]);
     } else {
       setStaff({ ...staff, [name]: value });
     }
@@ -233,6 +238,15 @@ const CreateForm = () => {
                 id="image"
                 name="image"
               />
+          </div>
+          <div className="col-md-6 mt-3 mb-3 offset-md-5">
+            {staffimages && (
+              <img
+                src={staffimages}
+                alt="staff"
+                style={{ width: "200px", height: "200px" }}
+              />
+            )}
           </div>
         </div>
 

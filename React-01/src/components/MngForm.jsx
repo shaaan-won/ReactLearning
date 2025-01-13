@@ -98,7 +98,11 @@ const MngForm = () => {
                   <td>{data.performance_score}</td>
                   <td>
                     <img src={`http://localhost/Project_PHP/Final_hotel_project/admin/img/staff/shawon-islam.jpg}`} alt={data.name||"image"}
-                       style={{ width: "100px", height: "100px" }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "http://localhost/Project_PHP/Final_hotel_project/admin/img/staff/shawon-islam.jpg";
+                    }}
+                       style={{ width: "50px", height: "50px" }}
                        />
                   </td>
                   <td className="btn btn-group btn-group-sm mt-2">

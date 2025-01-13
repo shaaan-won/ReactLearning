@@ -1,10 +1,20 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import Particles from "react-particles";
+import { op, option1 } from "../utils/particle-settings";
+import { loadFull } from "tsparticles";
 const Home = () => {
+   const initParticlesEngine = async (engine) => {
+      await loadFull(engine);
+    }
   return (
     <>
+    <Particles
+        id="tsparticles"
+        init={initParticlesEngine}
+        options={op}
+      />
       <div id="home">
-        <div id="particles-js" />
+        {/* <div id="particles-js" /> */}
         <div className="home-content-main">
           <div className="table-cell">
             <div className="container">
