@@ -7,11 +7,14 @@ const Header = () => {
         <div className="header-wrapper">
           <div className="container">
             <div className="row justify-content-between align-items-center">
-              <div className="col">
+              <div className="col  d-flex">
                 {/* Start Header Logo */}
-                <a href="index.html" className="header-logo">
-                  <img src="assets/images/logo/logo.png" alt />
+                <a href="index.html" className="header-logo " style={{ height: "100px", width: "100px" }}>
+                  <img src="assets/images/logo/log-2.png" alt />
                 </a>
+                {/* <a href="index.html" className="header-logo " style={{ height: "100px", width: "100px" }}>
+                  <img src="assets/images/logo/ffff.png" alt />
+                </a> */}
                 {/* End Header Logo */}
               </div>
               <div className="col-auto">

@@ -1,37 +1,31 @@
-import React, { useEffect } from "react";
-import Particles from "react-particles";
-import { op, option1 } from "../utils/particle-settings";
-import { loadFull } from "tsparticles";
+import React from "react";
+
+
 const Home = () => {
-   const initParticlesEngine = async (engine) => {
-      await loadFull(engine);
-    }
   return (
     <>
-    <Particles
-        id="tsparticles"
-        init={initParticlesEngine}
-        options={op}
-      />
       <div id="home">
-        {/* <div id="particles-js" /> */}
+        <div id="particles-js" />
         <div className="home-content-main">
           <div className="table-cell">
             <div className="container">
               <div className="row home-row">
                 <div className="col-md-12 col-sm-12">
-                  <div className="home-text wow fadeInDown text-left">
+                  <div
+                    className="home-text wow fadeInDown text-left"
+                    style={{ margin: "auto" }}
+                  >
                     <h1 className="cd-headline clip is-full-width">
                       <span
                         className="cd-words-wrapper"
                         style={{ width: 266, overflow: "hidden" }}
                       >
-                        <b className="is-hidden">Designer</b>
-                        <b className="is-hidden">Developer</b>
-                        <b className="is-visible">Photographer</b>
+                        <b className="is-hidden">Full Stack</b>
+                        <b className="is-hidden">Sleeper</b>
+                        <b className="is-visible">Lazy</b>
                       </span>
                     </h1>
-                    <h3>John Doe</h3>
+                    <h3>Shawon Islam</h3>
                     <div className="about-social-icon text-left">
                       <ul className="about-social">
                         <li className="wow fadeIn" data-wow-delay=".2s">

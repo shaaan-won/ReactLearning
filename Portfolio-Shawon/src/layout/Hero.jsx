@@ -11,9 +11,9 @@ const Hero = () => {
                 <div className="hero-content">
                   <h3 className="title-big">Hello! I’m</h3>
                   <h2 className="title-large">
-                    Mirta <span className="shape-mark">Akins</span>
+                    Shawon <br /><span className="shape-mark">Islam</span>
                   </h2>
-                  <p>UI/UX Designer specializing in Shopify &amp; Webflow.</p>
+                  <p>I'm a professional Full Stack Web Developer</p>
                   <a
                     href="#"
                     className="btn btn-xl btn-outline-one icon-space-left"
@@ -51,7 +51,7 @@ const Hero = () => {
             <div className="image">
               <img
                 className="img-fluid"
-                src="assets/images/portrait/portrait-hero.png"
+                src="assets/images/portrait/shawon1.png"
                 alt
               />
               <div className="image-half-round-shape" />

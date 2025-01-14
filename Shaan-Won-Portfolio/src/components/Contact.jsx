@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleMaps from "./GoogleMaps";
 
 const Contact = () => {
   return (
@@ -114,7 +115,7 @@ const Contact = () => {
                         aria-hidden="true"
                       />
                       <h3>Email</h3>
-                      <p>Yatri@gmail.com</p>
+                      <p>shawon.idb61@gmail.com</p>
                     </div>
                     <div className="info-details">
                       <i
@@ -122,7 +123,7 @@ const Contact = () => {
                         aria-hidden="true"
                       />
                       <h3>Phone</h3>
-                      <p>+8748347934</p>
+                      <p>+8801941424166</p>
                     </div>
                     <div className="info-details">
                       <i
@@ -130,41 +131,54 @@ const Contact = () => {
                         aria-hidden="true"
                       />
                       <h3>Address</h3>
-                      <p>Noakhali,Chittagong</p>
+                      <p>Sonargaon, Narayanganj</p>
                     </div>
                   </div>
                 </div>
                 {/* end row */}
               </div>
               {/* end container */}
-              <div className="container-fluid map-con">
-                <div className="row map-row">
-                  <div className="col-md-12 col-sm-12 map-col">
-                    <div className="google-maps">
-                      <div className="map-wrap">
-                        <div
-                          className="overlay-map"
-                          onclick="style.pointerEvents = 'none'"
-                        />
-                        {/* wrap map iframe to turn off mouse scroll and turn it back on on click */}
-                        <div id="map" style={{ width: "100%", height: 600 }} />
-                      </div>
-                      {/* end map wrap  */}
-                    </div>
-                    {/* end google map  */}
-                  </div>
-                  {/* end col-md-6  */}
-                </div>
-              </div>
+
+              <>
+               <GoogleMaps />
+              </>
+              
             </div>
             {/* end contact-form-details */}
-            <div className="copyright-details">
+            <div className="copyright-details text-center py-3 bg-light">
               <div className="copyright">
-                <h3>copyright and design: tamzid hossain</h3>
+                <h3 className="mb-2">
+                  © {new Date().getFullYear()} | Designed and developed by 
+                  <a
+                    href="https://shawon.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none ms-1"
+                  >
+                      Shawon Islam
+                  </a>
+                </h3>
               </div>
-              {/* end copyright */}
+              <div className="privacy-policy">
+                <p className="mb-0">
+                  All rights reserved by Shawon Islam. Please read our
+                  <a
+                    href="/privacy-policy"
+                    className="text-decoration-none ms-1"
+                  >
+                    Privacy Policy
+                  </a>
+                  or
+                  <a
+                    href="/terms-and-conditions"
+                    className="text-decoration-none ms-1"
+                  >
+                    Terms & Conditions
+                  </a>
+                  .
+                </p>
+              </div>
             </div>
-            {/* end copyright-details */}
           </div>
           {/* end contact-grid */}
         </div>

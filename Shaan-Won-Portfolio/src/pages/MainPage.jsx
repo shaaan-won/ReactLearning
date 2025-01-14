@@ -11,12 +11,13 @@ import Footer from "../layout/Footer";
 const MainPage = () => {
   return <>
     <Navbar />
-    <Home />
+    {/* <Home /> */}
     <About />
     <Skill />
     <Work />
     <Service />
     <Contact />
+    {/* <Footer /> */}
   </>;
 };
 
