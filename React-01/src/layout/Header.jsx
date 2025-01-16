@@ -7,7 +7,7 @@ const Header = () => {
       <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container">
-            <Link className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/Login">
               Staff Management
             </Link>
             <button

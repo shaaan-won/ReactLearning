@@ -15,7 +15,7 @@ const About = () => {
                       aria-hidden="true"
                     />
                     <h3>Working Hard</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <p>Shawon Islam is a professional web developer. </p>
                   </div>
                   {/* end service-details  */}
                 </div>
@@ -24,7 +24,7 @@ const About = () => {
                   <div className="love-details wow fadeIn" data-wow-delay=".2s">
                     <i className="fa fa-cogs love-icon" aria-hidden="true" />
                     <h3>Web Design</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <p>Shawon Islam is a professional web developer.</p>
                   </div>
                   {/* end service-details  */}
                 </div>
@@ -36,7 +36,7 @@ const About = () => {
                       aria-hidden="true"
                     />
                     <h3>Graphics Design</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <p>Shawon Islam is a professional web developer.</p>
                   </div>
                   {/* end service-details  */}
                 </div>
@@ -45,7 +45,7 @@ const About = () => {
                   <div className="love-details wow fadeIn" data-wow-delay=".4s">
                     <i className="fa fa-heart-o love-icon" aria-hidden="true" />
                     <h3>Photography</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                    <p>Shawon Islam is a professional web developer.</p>
                   </div>
                   {/* end service-details  */}
                 </div>
@@ -63,7 +63,7 @@ const About = () => {
                   <div className="about-image">
                     <div className="image-over" />
                     <img
-                      src="img/about-image.jpg"
+                      src="img/image.png"
                       alt
                       className="about-img wow fadeIn"
                     />
@@ -73,7 +73,7 @@ const About = () => {
                 {/* end col-md-4  */}
                 <div className="col-md-8 col-sm-6 col-xs-12 about-col">
                   <div className="about-details wow fadeIn">
-                    <h3 className="wow fadeIn">I Am Creative Human</h3>
+                    <h3 className="wow fadeIn">I Am Shawon Islam</h3>
                     <div className="underline1 no-margin" />
                     <div className="underline2 no-margin" />
                     <p className="wow fadeIn">

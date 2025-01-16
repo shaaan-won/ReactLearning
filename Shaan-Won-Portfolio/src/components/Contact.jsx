@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import GoogleMaps from "./GoogleMaps";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address : "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    axios 
+      .post("https://hotel.shawon.site/admin/api/Staff/savereact", formData)
+      .then((res) => {
+        console.log(res);
+        toast.success("Staff added successfully");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          address : "",
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div id="contact">
@@ -29,15 +65,17 @@ const Contact = () => {
                   <div className="col-md-8 col-sm-6 contact-col wow fadeIn">
                     <div className="contact-form">
                       <form
+                        onSubmit={handleSubmit}
                         id="contactForm"
                         className="contact-form shake"
-                        data-toggle="validator"
                       >
                         <div className="form-group">
                           <div className="controls">
                             <input
                               type="text"
+                              onChange={handleChange}
                               id="name"
+                              name = "name"
                               className="form-control"
                               placeholder="Name"
                               required
@@ -52,6 +90,8 @@ const Contact = () => {
                           <div className="controls">
                             <input
                               type="email"
+                              onChange={handleChange}
+                              name = "email"
                               className="email form-control"
                               id="email"
                               placeholder="Email"
@@ -67,11 +107,13 @@ const Contact = () => {
                           <div className="controls">
                             <input
                               type="text"
+                              onChange={handleChange}
+                              name = "phone"
                               id="msg_subject"
                               className="form-control"
-                              placeholder="Subject"
+                              placeholder="Phone"
                               required
-                              data-error="Please enter your message subject"
+                              data-error="Please enter your phone"
                             />
                             <div className="help-block with-errors" />
                           </div>
@@ -82,11 +124,13 @@ const Contact = () => {
                           <div className="controls">
                             <textarea
                               id="message"
+                              name = "address"
+                              onChange={handleChange}
                               rows={7}
-                              placeholder="Massage"
+                              placeholder="Address"
                               className="form-control"
                               required
-                              data-error="Write your message"
+                              data-error="Write your Address"
                               defaultValue={""}
                             />
                             <div className="help-block with-errors" />
@@ -140,22 +184,21 @@ const Contact = () => {
               {/* end container */}
 
               <>
-               <GoogleMaps />
+                <GoogleMaps />
               </>
-              
             </div>
             {/* end contact-form-details */}
             <div className="copyright-details text-center py-3 bg-light">
               <div className="copyright">
                 <h3 className="mb-2">
-                  © {new Date().getFullYear()} | Designed and developed by 
+                  © {new Date().getFullYear()} | Designed and developed by
                   <a
                     href="https://shawon.site/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-decoration-none ms-1"
                   >
-                      Shawon Islam
+                    Shawon Islam
                   </a>
                 </h3>
               </div>

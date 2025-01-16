@@ -85,7 +85,7 @@ const Work = () => {
                           {/* end overlay-main  */}
                         </div>
                         {/* end overlay  */}
-                        <img src="img/portfolios/graphics/1.jpg" alt />
+                        <img src="./img/portfolios/graphics/1.jpg" alt />
                       </div>
                       {/* end portfolio-wrapper  */}
                     </div>

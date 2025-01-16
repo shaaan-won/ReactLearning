@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 
 const CreateForm = () => {
   const [staffimages, setStaffImages] = useState([]);
+  const token = localStorage.getItem("token");
   const [staff, setStaff] = useState({
     name: "",
     staff_role_id: "",
@@ -62,6 +63,7 @@ const CreateForm = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
           },
         }
       )

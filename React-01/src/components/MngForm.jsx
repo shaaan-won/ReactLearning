@@ -6,12 +6,17 @@ import { toast } from "react-toastify";
 
 const MngForm = () => {
   const [staffs, setStaffMembers] = useState([]);
-
+  // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImlwIjoiOjoxIiwiaXNzIjoiand0LnNlcnZlciIsImF1ZCI6ImludGVscy5jbyJ9.eyJpZCI6IjEyNyIsIm5hbWUiOiJhZG1pbiIsInJvbGVfaWQiOiIxIiwiZW1haWwiOiJ0b3doaWQxQG91dGxvb2suY29tIiwiaXAiOiI6OjEiLCJpc3MiOiJqd3Quc2VydmVyIiwiYXVkIjoiaW50ZWxzLmNvIiwiZXhwIjoxNzM3MDIyMjU4fQ.SdSbl7dg7UTLGzDiy6AJqF6tB-OC-6u_iat05UhBvkI"
+  const token = localStorage.getItem("token");
   
   const fetchStaffMembers = () => {
     const loadingToast = toast.loading("Loading Staff Members...");
     axios
-      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/")
+      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         // console.log(res.data.staffs);
         setStaffMembers(res.data.staffs);

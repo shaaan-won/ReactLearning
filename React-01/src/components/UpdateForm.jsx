@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const UpdateForm = () => {
   const { id } = useParams();
+  const token = localStorage.getItem("token");
 
   const navigation = useNavigate();
   const [staff, setStaff] = useState({
@@ -24,7 +25,11 @@ const UpdateForm = () => {
 
   const fetchStaff = () => {
     axios
-      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/find/" + id)
+      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/find/" + id, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         // console.log(res.data.staff);
         setStaff(res.data.staff);
@@ -50,7 +55,10 @@ const UpdateForm = () => {
     axios
       .post(
         "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/update",
-        staff
+        staff,{
+          headers: {
+          Authorization: `Bearer ${token}`,
+        }}
       )
       .then((res) => {
         console.log(res.data);
