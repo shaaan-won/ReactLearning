@@ -20,17 +20,28 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        axios
-            .post('http://localhost/Project_PHP/Final_hotel_project/admin/api/auth/login', formData)
-            .then((res) => {
-                console.log(res.data.token);
-                localStorage.setItem('token', res.data.token);
-                // navigate.push('/StaffManage');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        // axios
+        //     .post('http://localhost/Project_PHP/Final_hotel_project/admin/api/auth/login', formData)
+        //     .then((res) => {
+        //         // console.log(res.data.token);
+        //         localStorage.setItem('token', res.data.token);
+        //         // navigate.push('/StaffManage');
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
         
+        ApiClient
+        .post('/auth/login', formData)
+        .then((res) => {
+            // console.log(res.data.token);
+            localStorage.setItem('token', res.data.token);
+            // navigate.push('/StaffManage');
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
     };
 
 

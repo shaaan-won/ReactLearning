@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import ApiClient from "../services/ApiClient";
 
 const CreateForm = () => {
   const [staffimages, setStaffImages] = useState([]);
@@ -35,6 +36,14 @@ const CreateForm = () => {
 
     // setStaff({ ...staff, [name]: value });
     // setStaff((prev) => ({ ...prev, [name]: value }));
+
+    //old way of setting the state
+    // setStaff((prev) => {
+    //   return {
+    //     ...prev,
+    //     [name]: value,
+    //   };
+    // })
     console.log(staff);
   };
   
@@ -56,17 +65,19 @@ const CreateForm = () => {
     empFormData.append("image", staff.image);
 
 
-    axios
-      .post(
-        "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/save",
-        empFormData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+    // axios
+    //   .post(
+    //     "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/save",
+    //     empFormData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //         Authorization: `Bearer ${token}`,
+    //       },
+    //     }
+    //   )
+    ApiClient
+      .post("/Staff/save", empFormData)
       .then((res) => {
         console.log(res.data);
         toast.success("Staff added successfully");

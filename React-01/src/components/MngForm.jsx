@@ -3,20 +3,18 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
+import ApiClient, { ApiClientPhoto } from "../services/ApiClient";
 
 const MngForm = () => {
   const [staffs, setStaffMembers] = useState([]);
   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImlwIjoiOjoxIiwiaXNzIjoiand0LnNlcnZlciIsImF1ZCI6ImludGVscy5jbyJ9.eyJpZCI6IjEyNyIsIm5hbWUiOiJhZG1pbiIsInJvbGVfaWQiOiIxIiwiZW1haWwiOiJ0b3doaWQxQG91dGxvb2suY29tIiwiaXAiOiI6OjEiLCJpc3MiOiJqd3Quc2VydmVyIiwiYXVkIjoiaW50ZWxzLmNvIiwiZXhwIjoxNzM3MDIyMjU4fQ.SdSbl7dg7UTLGzDiy6AJqF6tB-OC-6u_iat05UhBvkI"
-  const token = localStorage.getItem("token");
-  
+  // const token = localStorage.getItem("token");
+
+  // Fetch Staff Members uging ApiClient Rule
   const fetchStaffMembers = () => {
     const loadingToast = toast.loading("Loading Staff Members...");
-    axios
-      .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+    ApiClient
+      .get("/Staff/")
       .then((res) => {
         // console.log(res.data.staffs);
         setStaffMembers(res.data.staffs);
@@ -31,6 +29,56 @@ const MngForm = () => {
         console.log(err);
       })
   };
+
+  // // Fetch Staff Members uging Basic Rule
+  // const fetchStaffMembers = () => {
+  //   const loadingToast = toast.loading("Loading Staff Members...");
+  //   axios
+  //     .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       // console.log(res.data.staffs);
+  //       setStaffMembers(res.data.staffs);
+  //       toast.update(loadingToast, {
+  //         render: "Staff Members Loaded",
+  //         type: "success",
+  //         isLoading: false,
+  //         autoClose: 1000,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  // };
+
+
+  // Fetch Staff Members uging JWT Rule
+  // const fetchStaffMembers = () => {
+  //   const loadingToast = toast.loading("Loading Staff Members...");
+  //   axios
+  //     .get("http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       // console.log(res.data.staffs);
+  //       setStaffMembers(res.data.staffs);
+  //       toast.update(loadingToast, {
+  //         render: "Staff Members Loaded",
+  //         type: "success",
+  //         isLoading: false,
+  //         autoClose: 1000,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   useEffect(() => {
     fetchStaffMembers();
   }, []);
@@ -38,10 +86,10 @@ const MngForm = () => {
   // Delete Staff Member
   const handleDelete = (id) => {
     confirm("Are you sure you want to delete this staff member?");
-    axios
+    ApiClient
       .get(
-        "http://localhost/Project_PHP/Final_hotel_project/admin/api/Staff/delete/" +
-          id
+        "/Staff/delete/" +
+        id
       )
       .then((res) => {
         // console.log(res.data);
@@ -102,13 +150,14 @@ const MngForm = () => {
                   <td>{data.hired_date}</td>
                   <td>{data.performance_score}</td>
                   <td>
-                    <img src={`http://localhost/Project_PHP/Final_hotel_project/admin/img/staff/shawon-islam.jpg}`} alt={data.name||"image"}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "http://localhost/Project_PHP/Final_hotel_project/admin/img/staff/shawon-islam.jpg";
-                    }}
-                       style={{ width: "50px", height: "50px" }}
-                       />
+                    {/* <img src={`${ApiClientPhoto}+/staff/${data.image}`} alt={data.name || "image"} */}
+                    <img src={`${ApiClientPhoto}/staff/${data.image}`} alt={data.name || "image"}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src =`${ApiClientPhoto}/staff/shawon-islam.jpg`;
+                      }}
+                      style={{ width: "50px", height: "50px" }}
+                    />
                   </td>
                   <td className="btn btn-group btn-group-sm mt-2">
                     <NavLink

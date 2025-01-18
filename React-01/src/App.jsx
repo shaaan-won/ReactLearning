@@ -7,7 +7,8 @@ import StaffManage from './pages/Staff/staff/StaffManage';
 import StaffCreate from './pages/Staff/staff/StaffCreate';
 import StaffShow from './pages/Staff/staff/StaffShow';
 import StaffUpdate from './pages/Staff/staff/StaffUpdate';
-import Login from './Login/login';
+import Login from './Login/Login';
+
 
 import { ToastContainer } from 'react-toastify';
 
@@ -18,7 +19,7 @@ const App = () => {
      <ToastContainer />
      <BrowserRouter>
       <Routes>
-        <Route path='/Login'  element={ <Login/>} />
+        <Route path='/'  element={ <Login/>} />
         <Route path='/StaffManage'  element={ <StaffManage/>} />
         <Route path='/StaffCreate'  element={ <StaffCreate/>} />
         <Route path='/show/:id'  element={ <StaffShow/>} />
