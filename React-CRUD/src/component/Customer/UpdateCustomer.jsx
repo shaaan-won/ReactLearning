@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 const UpdateCustomer = () => {
   const navigator = useNavigate();
   const { id } = useParams();
+
   // Now we can fetch the data of the customer
   const [form, setForm] = React.useState({
     name: "",
@@ -21,7 +22,19 @@ const UpdateCustomer = () => {
     ApiClient
       .get("/Customer/find/" + id)
       .then((response) => {
-        setForm(response.data.customer);
+        // console.log(response.data.customer);
+        const customer = response.data.customer;
+        setForm({
+          name: customer.name,
+          first_name: customer.first_name,
+          last_name: customer.last_name,
+          email: customer.email,
+          phone: customer.phone,
+          address: customer.address,
+          id_card_type_id: customer.id_card_type_id,
+          id_card_number: customer.id_card_number
+        });
+        
       })
       .catch((error) => {
         console.log(error);
@@ -31,6 +44,8 @@ const UpdateCustomer = () => {
   useEffect(() => {
     fetchCustomer();
   }, []);
+  // console.log(form);
+
   // After fetching the data now we can change the data
   const handleChange = (e) => {
     setForm({
@@ -65,27 +80,27 @@ const UpdateCustomer = () => {
         <form onSubmit={handleSubmit} className="row g-3">
           <div className="col-md-6">
             <label htmlFor="name" className="form-label">Name</label>
-            <input type="text" onChange={handleChange} name="name" className="form-control" id="name" placeholder="Enter Name" required />
+            <input type="text" onChange={handleChange} name="name" value={form.name} className="form-control" id="name" placeholder="Enter Name" required />
           </div>
           <div className="col-md-6">
             <label htmlFor="firstName" className="form-label">First Name</label>
-            <input type="text" onChange={handleChange} name="first_name" className="form-control" id="firstName" placeholder="Enter First Name" required />
+            <input type="text" onChange={handleChange} name="first_name" value={form.first_name} className="form-control" id="firstName" placeholder="Enter First Name" required />
           </div>
           <div className="col-md-6">
             <label htmlFor="lastName" className="form-label">Last Name</label>
-            <input type="text" onChange={handleChange} name="last_name" className="form-control" id="lastName" placeholder="Enter Last Name" required />
+            <input type="text" onChange={handleChange} name="last_name" value={form.last_name} className="form-control" id="lastName" placeholder="Enter Last Name" required />
           </div>
           <div className="col-md-6">
             <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" onChange={handleChange} name="email" className="form-control" id="email" placeholder="Enter Email" required />
+            <input type="email" onChange={handleChange} name="email"  value={form.email} className="form-control" id="email" placeholder="Enter Email" required />
           </div>
           <div className="col-md-6">
             <label htmlFor="phone" className="form-label">Phone</label>
-            <input type="tel" onChange={handleChange} name="phone" className="form-control" id="phone" placeholder="Enter Phone Number" required />
+            <input type="tel" onChange={handleChange} name="phone" value={form.phone} className="form-control" id="phone" placeholder="Enter Phone Number" required />
           </div>
           <div className="col-md-6">
             <label htmlFor="idCardType" className="form-label">ID Card Type</label>
-            <select className="form-select" onChange={handleChange} name="id_card_type_id" id="idCardType" required>
+            <select className="form-select" onChange={handleChange} name="id_card_type_id" value={form.id_card_type_id} id="idCardType" required>
               <option selected disabled >Choose...</option>
               <option value="1" >Passport</option>
               <option value="2">Driver's License</option>
@@ -94,11 +109,11 @@ const UpdateCustomer = () => {
           </div>
           <div className="col-md-6">
             <label htmlFor="idCardNumber" className="form-label">ID Card Number</label>
-            <input type="text" onChange={handleChange} name="id_card_number" className="form-control" id="idCardNumber" placeholder="Enter ID Card Number" required />
+            <input type="text" onChange={handleChange} name="id_card_number" value={form.id_card_number} className="form-control" id="idCardNumber" placeholder="Enter ID Card Number" required />
           </div>
           <div className="col-12">
             <label htmlFor="address" className="form-label">Address</label>
-            <textarea className="form-control" onChange={handleChange} name="address" id="address" rows={3} placeholder="Enter Address" required defaultValue={""} />
+            <textarea className="form-control" onChange={handleChange} name="address" value={form.address} id="address" rows={3} placeholder="Enter Address" required defaultValue={""} />
           </div>
           <div className="col-12 text-center mt-4 mb-4">
             <button type="submit" className="btn btn-primary">Submit</button>

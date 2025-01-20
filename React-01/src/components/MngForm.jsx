@@ -1,5 +1,4 @@
-import React from "react";
-import axios from "axios";
+import React from "react"
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";

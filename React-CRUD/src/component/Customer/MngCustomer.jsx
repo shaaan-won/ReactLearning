@@ -9,7 +9,7 @@ import UpdateModal from '../UpdateModal';
 
 
 const MngCustomer = () => {
-
+    // Modal sectio For Update
     const [show, setShow] = useState(false);
     const [id, setId] = useState(null);
 
@@ -42,7 +42,21 @@ const MngCustomer = () => {
         fetchCustomers();
     }, []);
 
-console.log(show)
+    // Delete section
+
+    const handleDelete = (id) => {
+        ApiClient
+            .get("/Customer/delete/" + id)
+            .then((response) => {
+                console.log(response);
+                fetchCustomers();
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+    console.log(show)
     return (
         <>
             <div className="container mt-5">
@@ -76,8 +90,8 @@ console.log(show)
                                 <td>{data.address}</td>
                                 <td className="text-center d-flex">
                                     <Link to={`/update/${data.id}`} className="btn btn-success me-2">Edit</Link>
-                                    <button className="btn btn-primary me-2"  onClick={()=>handleShow(data.id)} >Modal</button>
-                                    <button className="btn btn-danger">Delete</button>
+                                    <button className="btn btn-primary me-2" onClick={() => handleShow(data.id)} >Modal</button>
+                                    <button className="btn btn-danger" onClick={() => handleDelete(data.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
@@ -99,9 +113,9 @@ console.log(show)
                 </table>
             </div>
 
-           {
-            show && <UpdateModal show={show} handleClose={handleClose} id={id}/>
-           }
+            {
+                show && <UpdateModal show={show} handleClose={handleClose} id={id} />
+            }
         </>
     )
 }
