@@ -1,6 +1,24 @@
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../assets/css/Hero.css";
+
+
 
 const Hero = () => {
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 1000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   fade: true,
+  // };
+
   return (
     <section className="hero" id="home">
       <div className="container">
@@ -8,14 +26,24 @@ const Hero = () => {
           <h1 className="tm-headline letters tm-rotate-text">
             Take The world’s <br />
             Best Quality Medical <br />
-            Treatmen for
-            <span className="tm-words-wrapper">
-              <b className="is-visible">DENTAL</b>
-              <b>NEUROLOGY</b>
-              <b>CRUTCHES</b>
-              <b>CARDIOLOGY</b>
-              <b>PULMONARY</b>
-              <b>X-RAY</b>
+            Treatment for{" "}
+            <span className="tm-words-wrapper tm-rotate-text ">
+              <Typewriter
+                words={[
+                  "DENTAL",
+                  "NEUROLOGY",
+                  "CRUTCHES",
+                  "CARDIOLOGY",
+                  "PULMONARY",
+                  "X-RAY",
+                ]}
+                loop={Infinity}
+                cursor
+                cursorStyle="_"
+                typeSpeed={100}
+                deleteSpeed={50}
+                delaySpeed={2000}
+              />
             </span>
           </h1>
           <div className="empty-space col-sm-b20 col-xs-b10" />
@@ -32,15 +60,25 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* .container */}
-      <div className="tm-hero-slider owl-carousel tm-dots1" id="tm-hero-slider">
-        <img src="assets/img/slide-01.jpg" alt="slide-01" />
-        <img src="assets/img/slide-02.jpg" alt="slide-02" />
-        <img src="assets/img/slide-03.jpg" alt="slide-03" />
+
+      {/* Hero Slider */}
+      <div className="hero-slider tm-nam-tm-style1 tm-nam-tm-style2 tm-dots1 tm-dots2 tm-dots3 " >
+        <Slider arrows={false} >
+          <div>
+            <img src="/assets/img/slide-01.jpg" alt="slide-01" />
+          </div>
+          <div>
+            <img src="/assets/img/slide-02.jpg" alt="slide-02" />
+          </div>
+          <div>
+            <img src="/assets/img/slide-03.jpg" alt="slide-03" />
+          </div>
+        </Slider>
       </div>
+
       <div className="hero-overlay" />
       <img
-        src="assets/img/sweet-shap.png"
+        src="/assets/img/sweet-shap.png"
         alt="Sweet Shap"
         className="sweet-shap"
       />

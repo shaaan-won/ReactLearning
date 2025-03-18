@@ -7,7 +7,7 @@ const Welcome = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/home"); // Redirects to homepage after 2 seconds
+      navigate("/homepage"); // Redirects to homepage after 2 seconds
     }, 2000);
   }, [navigate]);
 
