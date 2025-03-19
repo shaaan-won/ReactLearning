@@ -65,13 +65,13 @@ const Hero = () => {
       <div className="hero-slider tm-nam-tm-style1 tm-nam-tm-style2 tm-dots1 tm-dots2 tm-dots3 " >
         <Slider arrows={false} >
           <div>
-            <img src="/assets/img/slide-01.jpg" alt="slide-01" />
+            <img src="/assets/img/slide-01.jpg" alt="slidedd" />
           </div>
           <div>
-            <img src="/assets/img/slide-02.jpg" alt="slide-02" />
+            <img src="/assets/img/slide-02.jpg" alt="slide02" />
           </div>
           <div>
-            <img src="/assets/img/slide-03.jpg" alt="slide-03" />
+            <img src="/assets/img/slide-03.jpg" alt="slide03" />
           </div>
         </Slider>
       </div>

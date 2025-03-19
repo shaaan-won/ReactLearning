@@ -361,6 +361,7 @@ import axios from "axios";
 
 const API_BASE_URL =
   "http://localhost/LARAVEL_BEGINING/PROJECT-HMS-SHAAN/public/api";
+// "https://hms.shawon.site/public/api";
 
 const Appointment = () => {
   const [formData, setFormData] = useState({
@@ -368,6 +369,7 @@ const Appointment = () => {
     uemail: "",
     unumber: "",
     udate: "",
+    utime: "",
     udepartment: "Select Department",
     udoctor: "Select Doctor",
     umsg: "",
@@ -407,6 +409,7 @@ const Appointment = () => {
       !formData.uemail ||
       !formData.unumber ||
       !formData.udate ||
+      !formData.utime ||
       formData.udepartment === "Select Department" ||
       formData.udoctor === "Select Doctor"
     ) {
@@ -426,12 +429,15 @@ const Appointment = () => {
       const formattedDate = new Date(formData.udate)
         .toISOString()
         .split("T")[0];
-      const payload = { ...formData, udate: formattedDate };
+      const formattedTime = formData.utime;
+      const payload = { ...formData, udate: formattedDate, utime: formattedTime };
+      // console.log(payload);
       const response = await axios.post(
         `${API_BASE_URL}/appointments`,
         payload
       );
-
+      
+      console.log(response.data);
       if (response.status === 200) {
         setMessage("Appointment booked successfully!");
         setFormData({
@@ -439,6 +445,7 @@ const Appointment = () => {
           uemail: "",
           unumber: "",
           udate: "",
+          utime: "",
           udepartment: "Select Department",
           udoctor: "Select Doctor",
           umsg: "",
@@ -476,20 +483,25 @@ const Appointment = () => {
             </div>
           </div>
 
-          <div className="col-lg-5">
+          <div className="col-lg-5 ">
             {error && <p className="error">{error}</p>}
             {message && (
               <p
                 className={`alert ${
                   message.includes("success") ? "success" : "error"
                 }`}
+                style={{
+                  color: "blue",
+                  backgroundColor: "lightgreen",
+                  fontWeight: "bold",
+                }}
               >
                 {message}
               </p>
             )}
 
             <form onSubmit={handleSubmit} className="tm-appointment-form">
-              <div className="tm-form-field">
+              <div className="tm-form-field mt-3">
                 <input
                   type="text"
                   name="uname"
@@ -525,7 +537,7 @@ const Appointment = () => {
                 <span className="bar" />
               </div>
 
-              <div className="tm-form-field">
+              <div className="tm-form-field d-flex justify-content-between gap-3 ">
                 <input
                   type="date"
                   name="udate"
@@ -533,10 +545,19 @@ const Appointment = () => {
                   onChange={handleChange}
                   required
                 />
+                <input
+                  type="time"
+                  name="utime"
+                  id="time"
+                  onChange={handleChange}
+                  value={formData.utime}
+                  required
+                />
+                <span className="bar" />
                 <span className="bar" />
               </div>
 
-              <div className="tm-form-field">
+              <div className="tm-form-field ">
                 <select
                   name="udepartment"
                   value={formData.udepartment}
@@ -545,7 +566,12 @@ const Appointment = () => {
                 >
                   <option value="Select Department">Select Department</option>
                   {departments.map((dept) => (
-                    <option key={dept.id} value={dept.id}>
+                    <option
+                      className="tm-custom-select"
+                      style={{ color: "black" }}
+                      key={dept.id}
+                      value={dept.id}
+                    >
                       {dept.name}
                     </option>
                   ))}
@@ -561,7 +587,12 @@ const Appointment = () => {
                 >
                   <option value="Select Doctor">Select Doctor</option>
                   {doctors.map((doc) => (
-                    <option key={doc.id} value={doc.id}>
+                    <option
+                      className="tm-custom-select"
+                      style={{ color: "black" }}
+                      key={doc.id}
+                      value={doc.id}
+                    >
                       Dr. {doc.name}
                     </option>
                   ))}
@@ -578,9 +609,9 @@ const Appointment = () => {
                 <span className="bar" />
               </div>
 
-              <div className="tm-form-field">
+              <div className="tm-form-field ">
                 <button
-                  className="tm-btn1 tm-reverse"
+                  className="tm-btn1 tm-reverse mb-3"
                   type="submit"
                   disabled={loading}
                 >
