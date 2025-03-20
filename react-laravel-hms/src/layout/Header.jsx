@@ -22,7 +22,7 @@ const Header = () => {
             <div className="tm-site-branding">
               {/* For Image Logo */}
               <a href="index.html" className="tm-logo-link">
-                <img src="assets/img/logo.png" alt className="tm-logo" />
+                <img src="assets/img/logo.png" alt="logo" className="tm-logo" />
               </a>
               {/* For Site Title */}
               {/* <span class="tm-site-title">

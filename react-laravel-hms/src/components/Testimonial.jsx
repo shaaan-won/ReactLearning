@@ -17,7 +17,7 @@ const Testimonial = () => {
             <div className="owl-carousel tm-testimonial tm-testimonial-1 tm-dots1">
               <div className="tm-single-testimonial">
                 <div className="tm-testimonial-thumb">
-                  <img src="assets/img/test-01.jpg" alt />
+                  <img src="assets/img/test-01.jpg" alt="test-01" />
                 </div>
                 <div className="tm-testimonial-text">
                   <i className="fa fa-quote-right" />
@@ -35,7 +35,7 @@ const Testimonial = () => {
               {/* testimonail slide */}
               <div className="tm-single-testimonial">
                 <div className="tm-testimonial-thumb">
-                  <img src="assets/img/test-02.jpg" alt />
+                  <img src="assets/img/test-02.jpg" alt="test-02" />
                 </div>
                 <div className="tm-testimonial-text">
                   <i className="fa fa-quote-right" />
@@ -53,7 +53,7 @@ const Testimonial = () => {
               {/* testimonail slide */}
               <div className="tm-single-testimonial">
                 <div className="tm-testimonial-thumb">
-                  <img src="assets/img/test-03.jpg" alt />
+                  <img src="assets/img/test-03.jpg" alt="test-03" />
                 </div>
                 <div className="tm-testimonial-text">
                   <i className="fa fa-quote-right" />

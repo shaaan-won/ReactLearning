@@ -7,22 +7,22 @@ const ClientSection = () => {
   <div className="container">
     <div className="tm-clients-curosor owl-carousel">
       <div className="tm-client">
-        <img src="assets/img/client-logo-01.png" alt />
+        <img src="assets/img/client-logo-01.png" alt="client logo" />
       </div>
       <div className="tm-client">
-        <img src="assets/img/client-logo-02.png" alt />
+        <img src="assets/img/client-logo-02.png" alt="client logo" />
       </div>
       <div className="tm-client">
-        <img src="assets/img/client-logo-03.png" alt />
+        <img src="assets/img/client-logo-03.png" alt="client logo" />
       </div>
       <div className="tm-client">
-        <img src="assets/img/client-logo-04.png" alt />
+        <img src="assets/img/client-logo-04.png" alt ="client logo" />
       </div>
       <div className="tm-client">
-        <img src="assets/img/client-logo-05.png" alt />
+        <img src="assets/img/client-logo-05.png" alt="client logo" />
       </div>
       <div className="tm-client">
-        <img src="assets/img/client-logo-06.png" alt />
+        <img src="assets/img/client-logo-06.png" alt="client logo" />
       </div>
     </div>
   </div>

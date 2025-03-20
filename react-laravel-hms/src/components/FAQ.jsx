@@ -7,7 +7,7 @@ const FAQ = () => {
         <div className="col-lg-6">
           {/* For Vimeo Video */}
           <div className="tm-about-video">
-            <img src="assets/img/video-bg.jpg" alt />
+            <img src="assets/img/video-bg.jpg" alt  ="video bg" />
             <div
               className="tm-video-button"
               data-video-id={63636954}
@@ -21,7 +21,7 @@ const FAQ = () => {
           </div>
           {/* For Youtube Video */}
           {/* <div class="tm-about-video tm-video-button" data-video-id='nImFZRtGeAQ'>
-              <img src="assets/img/tm-about-video-bg.jpg" alt="">
+              <img src="assets/img/tm-about-video-bg.jpg" alt="yuy">
               <i class="video-icon"></i>
           </div> */}
         </div>

@@ -48,7 +48,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/1.dental.jpg" alt />
+                    <img src="assets/img/1.dental.jpg" alt="dental care" />
                   </div>
                 </div>
                 {/* .col */}
@@ -87,7 +87,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/2.neurology.jpg" alt />
+                    <img src="assets/img/2.neurology.jpg" alt ="neurology" />
                   </div>
                 </div>
                 {/* .col */}
@@ -127,7 +127,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/3.crutches.jpg" alt />
+                    <img src="assets/img/3.crutches.jpg" alt  ="crutches" />
                   </div>
                 </div>
                 {/* .col */}
@@ -167,7 +167,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/4.cardiology.jpg" alt />
+                    <img src="assets/img/4.cardiology.jpg" alt  ="cardiology" />
                   </div>
                 </div>
                 {/* .col */}
@@ -206,7 +206,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/5.pulmones.jpg" alt />
+                    <img src="assets/img/5.pulmones.jpg" alt  ="pulmones" />
                   </div>
                 </div>
                 {/* .col */}
@@ -246,7 +246,7 @@ const Department = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="tm-dept-img">
-                    <img src="assets/img/6.xray.jpg" alt />
+                    <img src="assets/img/6.xray.jpg" alt  ="xray" />
                   </div>
                 </div>
                 {/* .col */}

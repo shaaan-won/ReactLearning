@@ -18,7 +18,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-01.jpg" alt />
+                    <img src="assets/img/doctor-01.jpg" alt="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -59,7 +59,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-02.jpg" alt />
+                    <img src="assets/img/doctor-02.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -100,7 +100,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-03.jpg" alt />
+                    <img src="assets/img/doctor-03.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -141,7 +141,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-04.jpg" alt />
+                    <img src="assets/img/doctor-04.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -182,7 +182,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-01.jpg" alt />
+                    <img src="assets/img/doctor-01.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -223,7 +223,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-02.jpg" alt />
+                    <img src="assets/img/doctor-02.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -264,7 +264,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-03.jpg" alt />
+                    <img src="assets/img/doctor-03.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">
@@ -305,7 +305,7 @@ const DoctorsTeam = () => {
               <div className="tm-team-member">
                 <div className="tm-member-hover">
                   <a href="#" className="tm-member-thumb">
-                    <img src="assets/img/doctor-04.jpg" alt />
+                    <img src="/assets/img/doctor-04.jpg" alt ="team member" />
                   </a>
                   <div className="tm-member-social-btn-wrap">
                     <div className="tm-member-socila-btn">

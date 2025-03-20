@@ -368,6 +368,7 @@ const Appointment = () => {
     uname: "",
     uemail: "",
     unumber: "",
+    gender: "",
     udate: "",
     utime: "",
     udepartment: "Select Department",
@@ -430,20 +431,25 @@ const Appointment = () => {
         .toISOString()
         .split("T")[0];
       const formattedTime = formData.utime;
-      const payload = { ...formData, udate: formattedDate, utime: formattedTime };
-      // console.log(payload);
+      const payload = {
+        ...formData,
+        udate: formattedDate,
+        utime: formattedTime,
+      };
+      console.log(payload);
       const response = await axios.post(
         `${API_BASE_URL}/appointments`,
         payload
       );
-      
-      console.log(response.data);
+
+      // console.log(response.data);
       if (response.status === 200) {
         setMessage("Appointment booked successfully!");
         setFormData({
           uname: "",
           uemail: "",
           unumber: "",
+          gender: "",
           udate: "",
           utime: "",
           udepartment: "Select Department",
@@ -525,7 +531,7 @@ const Appointment = () => {
                 <span className="bar" />
               </div>
 
-              <div className="tm-form-field">
+              <div className="tm-form-field d-flex">
                 <input
                   type="text"
                   name="unumber"
@@ -534,6 +540,14 @@ const Appointment = () => {
                   onChange={handleChange}
                   required
                 />
+                <div className="gender d-flex text-white gap-2">
+                  <input type="radio" name="gender" value="male" defaultChecked={formData.gender} onChange={handleChange}/>
+                  Male
+                  <input type="radio" name="gender" value= "female" onChange={handleChange}/>
+                  Female
+                  <input type="radio" name="gender" value="other" onChange={handleChange} />
+                  Other
+                </div>
                 <span className="bar" />
               </div>
 
@@ -593,7 +607,7 @@ const Appointment = () => {
                       key={doc.id}
                       value={doc.id}
                     >
-                      Dr. {doc.name}
+                      {doc.name}
                     </option>
                   ))}
                 </select>
